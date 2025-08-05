@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { initProofOfReservesAnimations } from '../gsap/ProofOfReserves';
 
-const IframeComponent = dynamic(
-  () => import('@/components/IframeComponent'),
+const LiquidityChart = dynamic(
+  () => import('@/components/LiquidityChart'),
   { ssr: false }
 );
 
@@ -21,62 +21,112 @@ export default function ProofOfReserves() {
   }, []);
 
   return (
-    <section id="transparencia" data-por="section" className="py-24 px-6 bg-blue-200 text-black">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 data-por="heading" className="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">
-            100% de transparência e segurança
+    <section id="transparencia" data-por="section" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 right-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-cyan-100/40 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div data-por="badge" className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-blue-700">Acesso exclusivo à liquidez institucional</span>
+          </div>
+          
+          <h2 data-por="heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            Bem-vindo aos Bastidores da
+            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Liquidez Cripto
+            </span>
           </h2>
-          <p data-por="description" className="text-lg max-w-2xl mx-auto text-gray-700">
-            Acompanhe em tempo real o lastro completo do <strong data-por="highlight">tBRL</strong> no sistema bancário brasileiro.
+          
+          <p data-por="subtitle" className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-600 leading-relaxed">
+            Esqueça tudo o que você conhece sobre exchanges. A Axia não é uma corretora aberta a todos.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <ul className="space-y-6 text-left">
-              <li data-por="list-item" className="flex items-start">
-                <div className="mr-4 bg-blue-100 p-2 rounded-full">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Lastro completo em real</h3>
-                  <p className="text-gray-600">Cada tBRL é garantido por 1 real em conta bancária dedicada e auditada</p>
-                </div>
-              </li>
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Text Content */}
+          <div className="space-y-6">
+            <div data-por="description">
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
+                Somos sua <strong className="text-blue-600">mesa de operações (OTC) privada</strong>, 
+                um canal direto com a liquidez que você precisa, na hora que você precisa.
+              </p>
               
-              <li data-por="list-item" className="flex items-start">
-                <div className="mr-4 bg-blue-100 p-2 rounded-full">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Transparência em tempo real</h3>
-                  <p className="text-gray-600">Acompanhe o saldo bancário em tempo real através do nosso painel de transparência</p>
-                </div>
-              </li>
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
+                Aqui, suas negociações são executadas de forma confidencial e sob demanda. 
+                Você tem acesso a um <strong className="text-cyan-600">parceiro especialista</strong> que 
+                entende suas metas e estrutura operações para maximizar seu resultado.
+              </p>
               
-              <li data-por="list-item" className="flex items-start">
-                <div className="mr-4 bg-blue-100 p-2 rounded-full">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                Seja para converter caixa, realizar pagamentos internacionais ou executar 
+                estratégias de investimento complexas.
+              </p>
+            </div>
+
+            {/* Benefits List */}
+            <div className="space-y-4 mt-8">
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Verificação pública</h3>
-                  <p className="text-gray-600">Verificação pública do saldo total disponível para qualquer pessoa consultar</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Liquidez Profunda</h3>
+                  <p className="text-gray-600 text-sm">Acesso direto aos order books mais profundos do mercado</p>
                 </div>
-              </li>
-            </ul>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Execução Sem Slippage</h3>
+                  <p className="text-gray-600 text-sm">Preços garantidos mesmo para operações de grande volume</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Trading Institucional</h3>
+                  <p className="text-gray-600 text-sm">Ferramentas e suporte especializados para investidores profissionais</p>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div data-por="iframe-container" className="bg-white p-2 rounded-xl shadow-xl border border-gray-200 overflow-hidden transition-all">
-            <div className="relative w-full h-[360px] rounded-lg overflow-hidden">
-              <IframeComponent />
-              <div data-por="iframe-overlay" className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
+          {/* Liquidity Chart Container */}
+          <div data-por="chart-container" className="relative">
+            <div className="bg-white p-4 rounded-2xl shadow-xl border border-gray-200 relative overflow-hidden">
+              <div className="absolute top-4 right-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs font-medium text-gray-600 bg-white/90 px-2 py-1 rounded-full">
+                  Tempo Real
+                </span>
+              </div>
+              
+              <div className="relative w-full mt-8">
+                <LiquidityChart />
+              </div>
+              
+              <div className="text-center mt-4">
+                <p className="text-sm text-gray-600">Order Book BTC/USD • Simulação da Atualização em tempo real</p>
+              </div>
             </div>
           </div>
         </div>
