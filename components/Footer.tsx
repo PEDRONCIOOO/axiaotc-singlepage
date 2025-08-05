@@ -73,7 +73,7 @@ export default function Footer() {
             </li>
           </ul>
           <div data-footer="logo" className="mt-6 mb-2">
-            <img src="/tbrl-logo.svg" alt="tBRL Logo" className="h-8" />
+            <img src="/axialogo.png" alt="Axia OTC Logo" className="h-8" />
           </div>
           <p className="text-xs text-gray-500" data-footer="copyright">© 2025 tBRL LTDA | CNPJ XX.XXX.XXX/0001-XX</p>
         </div>

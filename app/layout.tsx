@@ -21,15 +21,15 @@ const montserrat = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "tBRL | Real Brasileiro na Web3",
+  title: "Axia | OTC",
   description:
-    "A stablecoin 100% lastreada em real que conecta o Pix à Web3, liberando liquidez instantânea para exchanges, fintechs, bancos digitais e corporações globais.",
+    "Para investidores e empresas que precisam de agilidade, segurança e um parceiro especialista para movimentar a partir de R$20.000 sem impactar o mercado e sem as travas do sistema tradicional.",
   keywords:
-    "tBRL, stablecoin, real brasileiro, pix, web3, blockchain, fintech, crypto, payments",
+    "Axia, OTC, stablecoin, real brasileiro, pix, web3, blockchain, fintech, crypto, payments",
   openGraph: {
-    title: "tBRL | Real Brasileiro na Web3",
-    description: "A stablecoin 100% lastreada em real que conecta o Pix à Web3",
-    images: [{ url: "/og-image.png" }],
+    title: "Axia | OTC",
+    description: "Para investidores e empresas que precisam de agilidade, segurança e um parceiro especialista para movimentar a partir de R$20.000 sem impactar o mercado e sem as travas do sistema tradicional.",
+    images: [{ url: "/axialogo.png" }],
   },
 };
 
