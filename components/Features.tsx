@@ -14,59 +14,156 @@ export default function Features() {
     };
   }, []);
 
+  const problemsData = [
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+        </svg>
+      ),
+      title: "Perda de Valor",
+      description: "Com a desvalorização constante do real, seu dinheiro perde valor a cada dia que passa.",
+      gradient: "from-red-500 to-red-600"
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Burocracia e Lentidão",
+      description: "Processos burocráticos e lentos podem atrasar suas transações e investimentos.",
+      gradient: "from-red-600 to-red-700"
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Suporte Genérico",
+      description: "Atendimento ao cliente limitado e falta de suporte personalizado.",
+      gradient: "from-red-500 to-red-700"
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      ),
+      title: "Falta de Sigilo",
+      description: "As transações financeiras tradicionais muitas vezes carecem de privacidade e segurança.",
+      gradient: "from-red-600 to-red-500"
+    }
+  ];
+
   return (
-    <section id="como-funciona" data-features="section" className="py-24 px-6 bg-white text-black">
-      <div className="max-w-6xl mx-auto">
-        <h2 data-features="heading" className="text-3xl sm:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-          Como o tBRL funciona
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div data-features="card" className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg border border-blue-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-full -mr-12 -mt-12 opacity-50"></div>
-            <div className="relative z-10">
-              <div className="bg-blue-100 p-3 rounded-full inline-flex mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Entrada de Dinheiro</h3>
-              <p className="text-gray-700">Envie um <strong className="text-blue-600">Pix</strong> e receba tBRL instantaneamente em sua conta digital</p>
-            </div>
+    <section id="como-funciona" data-features="section" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-200 to-cyan-400 relative overflow-hidden">
+      {/* Background Elements - Cores azul/cyan */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/60 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-200/50 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div data-features="badge" className="inline-flex items-center gap-2 bg-red-50 border border-red-200 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+            <span className="text-xs sm:text-sm font-medium text-red-700">Problemas do mercado tradicional</span>
           </div>
           
-          <div data-features="card" className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg border border-blue-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-full -mr-12 -mt-12 opacity-50"></div>
-            <div className="relative z-10">
-              <div className="bg-blue-100 p-3 rounded-full inline-flex mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Saída de Dinheiro</h3>
-              <p className="text-gray-700">Converta tBRL e receba reais via <strong className="text-blue-600">Pix</strong> na sua conta bancária em segundos</p>
-            </div>
-          </div>
+          <h2 data-features="heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-500 to-cyan-500 mb-2">
+              O mercado tradicional está
+            </span>
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-700">
+              limitando seu potencial?
+            </span>
+          </h2>
           
-          <div data-features="card" className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg border border-blue-100 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-full -mr-12 -mt-12 opacity-50"></div>
-            <div className="relative z-10">
-              <div className="bg-blue-100 p-3 rounded-full inline-flex mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-xl mb-3">Transações Internacionais</h3>
-              <p className="text-gray-700">Troque diretamente <strong className="text-blue-600">reais por dólar digital</strong> com taxas a partir de <strong className="text-blue-600">0,6%</strong></p>
-            </div>
-          </div>
-        </div>
-        
-        <div data-features="footer" className="text-center bg-blue-50 py-4 px-6 rounded-lg shadow-inner max-w-2xl mx-auto">
-          <p className="text-blue-800">
-            Compatível com as principais redes de pagamento digital no Brasil e no mundo
+          <p data-features="subtitle" className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed px-2">
+            Se você lida com grandes volumes, já conhece os obstáculos: operações que perdem valor no meio do caminho (slippage), a lentidão de uma remessa SWIFT, a burocracia que trava seu capital e a falta de privacidade que expõe sua estratégia. Mover milhões não deveria ser um processo lento, caro e arriscado.
           </p>
         </div>
+        
+        {/* Problems Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {problemsData.map((problem, index) => (
+            <div 
+              key={index}
+              data-features="card" 
+              className="group bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-lg border border-blue-200/30 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+            >
+              {/* Background decoration */}
+              <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${problem.gradient} opacity-10 rounded-full -mr-10 -mt-10 transition-all duration-300 group-hover:scale-150`}></div>
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <div className={`bg-gradient-to-br ${problem.gradient} p-3 rounded-xl inline-flex mb-4 text-white shadow-lg`}>
+                  {problem.icon}
+                </div>
+                <h3 className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-slate-900 transition-colors">
+                  {problem.title}
+                </h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  {problem.description}
+                </p>
+              </div>
+              
+              {/* Hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Solution CTA */}
+        <div data-features="solution" className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-2xl">
+          {/* Background decoration - Cores azul/cyan */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-300/10 rounded-full -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-300/20 rounded-full -ml-24 -mb-24"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          
+          <div className="relative z-10 max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-xs sm:text-sm font-medium">A solução que você precisa</span>
+            </div>
+            
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
+              Acesso direto à liquidez cripto institucional
+            </h3>
+            
+            <p className="text-lg sm:text-xl mb-8 opacity-90 leading-relaxed max-w-3xl mx-auto">
+              Supere todas essas limitações com nossa plataforma especializada em grandes volumes, 
+              oferecendo agilidade, segurança e suporte dedicado.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+              <a 
+                href="#contato" 
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-white text-blue-600 rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Começar agora
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              
+              <a 
+                href="#casos-de-uso" 
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+              >
+                Ver casos de uso
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </section>
   );
