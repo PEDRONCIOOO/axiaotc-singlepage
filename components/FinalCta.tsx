@@ -69,9 +69,10 @@ export default function FinalCta() {
         setSubmitStatus('idle');
       }, 2000);
 
-    } catch (any) {
+    } catch (error) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 3000);
+      console.warn('Error submitting form:', error);
     } finally {
       setIsSubmitting(false);
     }
