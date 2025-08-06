@@ -1,32 +1,19 @@
 'use client'
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initFinalCtaAnimations } from '../gsap/FinalCta';
-
-const PARTICLE_POSITIONS = [
-  { left: "67%", top: "40%" },
-  { left: "45%", top: "54%" },
-  { left: "63%", top: "14%" },
-  { left: "8%", top: "82%" },
-  { left: "74%", top: "57%" },
-  { left: "29%", top: "43%" },
-  { left: "93%", top: "56%" },
-  { left: "33%", top: "23%" },
-  { left: "84%", top: "48%" },
-  { left: "65%", top: "48%" },
-  { left: "78%", top: "1%" },
-  { left: "28%", top: "88%" },
-  { left: "38%", top: "17%" },
-  { left: "22%", top: "28%" },
-  { left: "95%", top: "2%" },
-  { left: "95%", top: "28%" },
-  { left: "58%", top: "66%" },
-  { left: "75%", top: "89%" },
-  { left: "52%", top: "27%" },
-  { left: "69%", top: "79%" }
-];
+import Image from 'next/image';
 
 export default function FinalCta() {
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    assunto: '',
+    mensagem: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   useEffect(() => {
     const cleanup = initFinalCtaAnimations();
     
@@ -37,105 +24,285 @@ export default function FinalCta() {
     };
   }, []);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      // Criar mailto link com os dados do formulário
+      const mailtoLink = `mailto:info@axiadigitalsolutions.com?subject=${encodeURIComponent(formData.assunto)}&body=${encodeURIComponent(
+        `Nome: ${formData.nome}\nEmail: ${formData.email}\n\nMensagem:\n${formData.mensagem}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      setSubmitStatus('success');
+      
+      // Reset form after success
+      setTimeout(() => {
+        setFormData({ nome: '', email: '', assunto: '', mensagem: '' });
+        setSubmitStatus('idle');
+      }, 2000);
+      
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section id="contato" data-cta="section" className="py-24 px-6 bg-gradient-to-b from-[#f8f9fa] to-[#e9ecef] text-gray-800 relative overflow-hidden">
+    <section id="contato" data-cta="section" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-300 to-slate-100 relative overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div data-cta="particles" className="absolute inset-0">
-          {PARTICLE_POSITIONS.map((position, i) => (
-            <div 
-              key={i}
-              data-cta="particle"
-              className="absolute w-2 h-2 bg-blue-500 rounded-full opacity-20"
-              style={{
-                left: position.left,
-                top: position.top,
-              }}
-            ></div>
-          ))}
-        </div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-cyan-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-100/5 to-cyan-100/5 rounded-full blur-3xl"></div>
       </div>
       
-      {/* Main content container */}
-      <div className="max-w-4xl mx-auto relative">
-        {/* Decorative element */}
-        <div data-cta="decoration" className="absolute -top-20 -left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl opacity-10"></div>
-        
-        <div className="text-center relative z-10">
-          <div data-cta="badge" className="inline-block bg-blue-100 px-4 py-2 rounded-full text-blue-700 text-sm font-medium mb-6 backdrop-blur-sm border border-blue-200">
-            <span className="mr-2">✨</span> Transforme sua operação financeira
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div data-cta="badge" className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-blue-700">Comece hoje mesmo</span>
           </div>
           
-          <h2 data-cta="heading" className="text-3xl sm:text-5xl font-bold mb-6 leading-tight">
-            <span className="block">Pronto para modernizar</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">suas operações financeiras?</span>
+          <h2 data-cta="heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            <span className="block mb-2 leading-tight">
+              Pronto para revolucionar
+              suas operações cripto?
+            </span>
+
           </h2>
           
-          <p data-cta="description" className="text-lg mb-10 text-gray-600 max-w-2xl mx-auto">
-            Junte-se às centenas de empresas que já utilizam o <strong className="text-blue-600">tBRL</strong> para processar pagamentos, reduzir custos e acelerar seus processos financeiros.
+          <p data-cta="subtitle" className="text-lg sm:text-xl max-w-4xl mx-auto text-gray-600 leading-relaxed">
+            Entre em contato conosco e descubra como nossa liquidez institucional pode transformar seus resultados
           </p>
-          
-          <div data-cta="cards" className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 text-left">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Company Info */}
+          <div data-cta="company-info" className="space-y-8">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/axialogo.png"
+                alt="Axia Digital Solutions"
+                width={100}
+                height={100}
+                className="mb-6"
+              />
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-6">
+                Axia Digital Solutions
+              </h3>
+            </div>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+                Somos especialistas em liquidez cripto institucional, oferecendo soluções personalizadas para empresas que buscam maximizar seus resultados no mercado digital.
+              </p>
+
+            {/* Key Benefits */}
+            <div className="grid gap-6">
+              <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-blue-100">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Demonstração personalizada</h3>
+                <div>
+                  <h4 className="font-bold text-lg text-slate-800 mb-2">Resposta em 1 hora</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Nossa equipe responde todas as solicitações em até 1 hora durante horário comercial</p>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                Agende uma demonstração com nossa equipe para ver como o tBRL pode se adaptar às necessidades específicas da sua empresa.
-              </p>
-              <a
-                href="mailto:demo@tbrl.com.br"
-                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition"
-              >
-                <span>Agendar demonstração</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 text-left">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+
+              <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-blue-100">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">Fale com um consultor</h3>
+                <div>
+                  <h4 className="font-bold text-lg text-slate-800 mb-2">Setup em 24h</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Após aprovação, sua conta fica operacional em até 24 horas</p>
+                </div>
               </div>
-              <p className="text-gray-600 mb-4">
-                Tire suas dúvidas e entenda melhor como nossa solução pode ajudar a otimizar seus processos de pagamento.
-              </p>
-              <a
-                href="tel:+551199999999"
-                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition"
-              >
-                <span>Ligar agora</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+
+              <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-blue-100">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-slate-800 mb-2">Suporte 24/7</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Mercado global que nunca para, suporte que nunca falha</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg text-slate-800 mb-4">Outras formas de contato:</h4>
+              <div className="space-y-3">
+                <a href="mailto:info@axiadigitalsolutions.com" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  info@axiadigitalsolutions.com
+                </a>
+              </div>
             </div>
           </div>
-          
-          <div data-cta="action" className="relative">
-            <a
-              href="mailto:contato@tbrl.com.br"
-              className="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-blue-200 transition-all transform hover:-translate-y-1"
-            >
-              Começar agora
-            </a>
-            <div className="absolute -z-10 inset-0 bg-blue-400 blur-xl opacity-10 rounded-full scale-150"></div>
+
+          {/* Contact Form */}
+          <div data-cta="form-container" className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 sm:p-10">
+            <div className="mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+                Fale conosco
+              </h3>
+              <p className="text-slate-600 text-base sm:text-lg">
+                Preencha o formulário abaixo e nossa equipe entrará em contato em até 1 hora
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="nome" className="block text-sm font-semibold text-slate-700 mb-2">
+                  Nome Completo *
+                </label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  value={formData.nome}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
+                  placeholder="Seu nome completo"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
+                  E-mail *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="assunto" className="block text-sm font-semibold text-slate-700 mb-2">
+                  Assunto *
+                </label>
+                <select
+                  id="assunto"
+                  name="assunto"
+                  value={formData.assunto}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
+                >
+                  <option value="">Selecione um assunto</option>
+                  <option value="Mesa OTC - Informações Gerais">Mesa OTC - Informações Gerais</option>
+                  <option value="Integração API">Integração API</option>
+                  <option value="Cross-Border Payments">Cross-Border Payments</option>
+                  <option value="Volumes Grandes (+R$ 1M)">Volumes Grandes (+R$ 1M)</option>
+                  <option value="Suporte Técnico">Suporte Técnico</option>
+                  <option value="Parceria Comercial">Parceria Comercial</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="mensagem" className="block text-sm font-semibold text-slate-700 mb-2">
+                  Mensagem *
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  value={formData.mensagem}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm resize-none"
+                  placeholder="Conte-nos mais sobre suas necessidades, volume esperado e como podemos ajudar..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 ${
+                  isSubmitting
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : submitStatus === 'success'
+                    ? 'bg-green-500 hover:bg-green-600'
+                    : submitStatus === 'error'
+                    ? 'bg-red-500 hover:bg-red-600'
+                    : 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 hover:shadow-xl hover:-translate-y-0.5'
+                } text-white shadow-lg`}
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  </span>
+                ) : submitStatus === 'success' ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Mensagem enviada!
+                  </span>
+                ) : submitStatus === 'error' ? (
+                  'Erro - Tente novamente'
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                    Enviar mensagem
+                  </span>
+                )}
+              </button>
+            </form>
+
+            {/* Trust Indicators */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span>Resposta garantida em 1h</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <span>100% confidencial</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <span>Sem compromisso</span>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <p data-cta="testimonial" className="mt-12 text-gray-600 italic">
-            "A integração com o tBRL foi simples e o resultado imediato. Reduzimos nossos custos operacionais em 32% no primeiro mês."
-            <span className="block mt-2 text-sm font-medium not-italic text-gray-800">— Carolina Silva, CFO da TechPay</span>
-          </p>
         </div>
       </div>
     </section>

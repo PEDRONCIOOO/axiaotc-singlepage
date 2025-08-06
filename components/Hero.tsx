@@ -84,7 +84,7 @@ export default function Hero() {
         </div>
         
         {/* Main Heading */}
-        <h1 data-hero="heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-6xl mx-auto leading-tight mb-6 sm:mb-8 px-2">
+        <h1 data-hero="heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold max-w-6xl mx-auto leading-tight mb-6 sm:mb-8 px-2">
           <span className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-600 mb-2">
             O Acesso Direto à
           </span>

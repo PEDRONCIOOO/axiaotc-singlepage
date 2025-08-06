@@ -58,7 +58,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="como-funciona" data-features="section" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-200 to-cyan-400 relative overflow-hidden">
+    <section id="como-funciona" data-features="section" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-200 to-white relative overflow-hidden">
       {/* Background Elements - Cores azul/cyan */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/60 rounded-full blur-xl"></div>
@@ -117,52 +117,7 @@ export default function Features() {
             </div>
           ))}
         </div>
-        
-        {/* Solution CTA */}
-        <div data-features="solution" className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-2xl">
-          {/* Background decoration - Cores azul/cyan */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-300/10 rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-300/20 rounded-full -ml-24 -mb-24"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-xs sm:text-sm font-medium">A solução que você precisa</span>
-            </div>
-            
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-              Acesso direto à liquidez cripto institucional
-            </h3>
-            
-            <p className="text-lg sm:text-xl mb-8 opacity-90 leading-relaxed max-w-3xl mx-auto">
-              Supere todas essas limitações com nossa plataforma especializada em grandes volumes, 
-              oferecendo agilidade, segurança e suporte dedicado.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-              <a 
-                href="#contato" 
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-white text-blue-600 rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
-                Começar agora
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              
-              <a 
-                href="#casos-de-uso" 
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300"
-              >
-                Ver casos de uso
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+
         
       </div>
     </section>
