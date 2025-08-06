@@ -80,26 +80,26 @@ export default function Hero() {
         {/* Badge */}
         <div data-hero="badge" className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-blue-200/50 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 shadow-lg mx-auto">
           <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full animate-pulse"></div>
-          <span className="text-xs sm:text-sm font-medium text-blue-700">Liquidez institucional para grandes volumes</span>
+          <span data-i18n="hero.badge" className="text-xs sm:text-sm font-medium text-blue-700">Liquidez institucional para grandes volumes</span>
         </div>
         
         {/* Main Heading */}
         <h1 data-hero="heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold max-w-6xl mx-auto leading-tight mb-6 sm:mb-8 px-2">
-          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-600 mb-2">
+          <span data-i18n="hero.heading.line1" className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-600 mb-2">
             O Acesso Direto à
           </span>
-          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 relative mb-2">
+          <span data-i18n="hero.heading.line2" className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 relative mb-2">
             Liquidez Cripto
             {/* Decorative underline */}
             <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 w-20 sm:w-32 h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
           </span>
-          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-slate-700">
+          <span data-i18n="hero.heading.line3" className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-slate-700">
             para Grandes Volumes
           </span>
         </h1>
         
         {/* Description */}
-        <p data-hero="description" className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-slate-600 mb-8 sm:mb-12 leading-relaxed px-2">
+        <p data-hero="description" data-i18n="hero.description" className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-slate-600 mb-8 sm:mb-12 leading-relaxed px-2">
           Para <span className="font-semibold text-blue-700">investidores e empresas</span> que precisam de agilidade, segurança e um parceiro especialista para movimentar <span className="font-semibold text-cyan-600">a partir de R$20.000</span> sem impactar o mercado e sem as travas do sistema tradicional.
         </p>
         
@@ -110,7 +110,7 @@ export default function Hero() {
             href="#contato" 
             className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/25 hover:-translate-y-1"
           >
-            <span className="relative z-10">Fale com um especialista</span>
+            <span data-i18n="hero.buttons.primary" className="relative z-10">Fale com um especialista</span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-cyan-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -122,7 +122,7 @@ export default function Hero() {
             href="#como-funciona" 
             className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-blue-700 transition-all duration-300 bg-white/90 backdrop-blur-sm border-2 border-blue-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:-translate-y-1 shadow-lg hover:shadow-xl"
           >
-            Como funciona
+            <span data-i18n="hero.buttons.secondary">Como funciona</span>
             <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -138,8 +138,8 @@ export default function Hero() {
               </svg>
             </div>
             <div className="text-left min-w-0">
-              <p className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 leading-tight">R$ 3+ bilhões</p>
-              <p className="text-xs sm:text-sm text-slate-600 leading-tight">movimentados na última década</p>
+              <p data-i18n="hero.stats.amount" className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 leading-tight">R$ 3+ bilhões</p>
+              <p data-i18n="hero.stats.description" className="text-xs sm:text-sm text-slate-600 leading-tight">movimentados na última década</p>
             </div>
           </div>
         </div>

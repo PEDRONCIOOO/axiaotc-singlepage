@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import { initApiSectionAnimations } from '../gsap/ApiSection';
 
 export default function ApiSection() {
+  const { language, t } = useTranslation();
+
   useEffect(() => {
     const cleanup = initApiSectionAnimations();
     
@@ -14,6 +17,28 @@ export default function ApiSection() {
     };
   }, []);
 
+  // Atualizar conteúdo quando as traduções mudarem
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const translation = t(key);
+          if (translation && translation !== key) {
+            if (translation.includes('<') && translation.includes('>')) {
+              element.innerHTML = translation;
+            } else {
+              element.textContent = translation;
+            }
+          }
+        }
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [language, t]);
+
   const steps = [
     {
       icon: (
@@ -21,8 +46,8 @@ export default function ApiSection() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
       ),
-      title: "Passo 1: Pré-Cadastro Inteligente",
-      description: "Você preenche um formulário rápido com seu perfil. Um especialista da nossa equipe entrará em contato via WhatsApp para entender sua demanda, alinhar expectativas e validar sua entrada."
+      titleKey: "apiSection.steps.step1.title",
+      descriptionKey: "apiSection.steps.step1.description"
     },
     {
       icon: (
@@ -30,8 +55,8 @@ export default function ApiSection() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Passo 2: Liberação da Conta",
-      description: "Após a validação, sua conta é liberada. Você terá um canal direto com nossa equipe para cotar e executar suas operações com total sigilo e suporte personalizado."
+      titleKey: "apiSection.steps.step2.title",
+      descriptionKey: "apiSection.steps.step2.description"
     },
     {
       icon: (
@@ -39,8 +64,8 @@ export default function ApiSection() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: "Passo 3: Opere com Liquidez Imediata",
-      description: "Compre ou venda grandes volumes de criptoativos (BTC, stablecoins e mais) com liquidação em Real, Dólar ou Euro. Sem limites de horário, sem fronteiras e com a segurança de uma estrutura institucional."
+      titleKey: "apiSection.steps.step3.title",
+      descriptionKey: "apiSection.steps.step3.description"
     }
   ];
 
@@ -57,19 +82,21 @@ export default function ApiSection() {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div data-api="badge" className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-xs sm:text-sm font-medium text-blue-700">Processo simplificado</span>
+            <span data-i18n="apiSection.badge" className="text-xs sm:text-sm font-medium text-blue-700">
+              Processo simplificado
+            </span>
           </div>
           
           <h2 data-api="heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-600 mb-2">
+            <span data-i18n="apiSection.heading.line1" className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-700 to-cyan-600 mb-2">
               Seu Acesso à Mesa
             </span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500">
+            <span data-i18n="apiSection.heading.line2" className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500">
               em 3 Passos Simples
             </span>
           </h2>
           
-          <p data-api="subtitle" className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed px-2">
+          <p data-api="subtitle" data-i18n="apiSection.subtitle" className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed px-2">
             Processo otimizado para conectar você rapidamente à liquidez institucional
           </p>
         </div>
@@ -77,7 +104,7 @@ export default function ApiSection() {
         {/* Steps Grid */}
         <div className="grid md:grid-cols-3 gap-8 sm:gap-12 mb-12 sm:mb-16">
           {steps.map((step, index) => (
-            <div key={index} data-api="step" className="group text-center">
+            <div key={index} data-api="step" className="group text-center relative">
               {/* Step Number */}
               <div className="relative mb-6">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
@@ -92,22 +119,31 @@ export default function ApiSection() {
 
               {/* Content */}
               <div className="space-y-3">
-                <h3 className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
-                  {step.title}
+                <h3 data-i18n={step.titleKey} className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                  {/* Texto será substituído pela tradução */}
                 </h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed px-2">
-                  {step.description}
+                <p data-i18n={step.descriptionKey} className="text-sm sm:text-base text-slate-600 leading-relaxed px-2">
+                  {/* Texto será substituído pela tradução */}
                 </p>
               </div>
 
-              {/* Connector Line (hidden on last item) */}
+              {/* Connector Line (hidden on last item and mobile) */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-cyan-200 transform translate-x-4 -translate-y-1/2"></div>
+                <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-cyan-200 transform translate-x-4 -translate-y-1/2 z-0"></div>
               )}
             </div>
           ))}
         </div>
 
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-blue-200/50 rounded-full px-6 py-3 shadow-lg">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span data-api="readyStart" data-i18n="apiSection.readyStart" className="text-sm font-medium text-slate-700">
+              Pronto para começar? Entre em contato agora
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

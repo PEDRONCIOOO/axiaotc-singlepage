@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import { initWhitelabelAnimations } from '../gsap/Whitelabel';
 
 export default function Whitelabel() {
+  const { language, t } = useTranslation();
+
   useEffect(() => {
     const cleanup = initWhitelabelAnimations();
     
@@ -14,6 +17,28 @@ export default function Whitelabel() {
     };
   }, []);
 
+  // Atualizar conteúdo quando as traduções mudarem
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const translation = t(key);
+          if (translation && translation !== key) {
+            if (translation.includes('<') && translation.includes('>')) {
+              element.innerHTML = translation;
+            } else {
+              element.textContent = translation;
+            }
+          }
+        }
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [language, t]);
+
   const services = [
     {
       icon: (
@@ -21,8 +46,8 @@ export default function Whitelabel() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.586-4.5a2 2 0 112.828 2.828L12 18.5 5.586 12.086A2 2 0 118.414 9.5l3.586 3.586z" />
         </svg>
       ),
-      title: "Segurança Institucional",
-      description: "Infraestrutura blindada com protocolos militares e processos validados para movimentações de grande volume.",
+      titleKey: "whitelabel.services.institutionalSecurity.title",
+      descriptionKey: "whitelabel.services.institutionalSecurity.description",
       gradient: "from-blue-500 to-cyan-400"
     },
     {
@@ -31,8 +56,8 @@ export default function Whitelabel() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
         </svg>
       ),
-      title: "Liquidez Multi-Moeda",
-      description: "Conversão instantânea entre BRL, USD e EUR com acesso direto aos maiores pools de liquidez globais.",
+      titleKey: "whitelabel.services.multiCurrencyLiquidity.title",
+      descriptionKey: "whitelabel.services.multiCurrencyLiquidity.description",
       gradient: "from-cyan-500 to-blue-400"
     },
     {
@@ -41,8 +66,8 @@ export default function Whitelabel() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
-      title: "Operação 24/7",
-      description: "Mercado global que nunca dorme. Execute operações a qualquer momento e capture as melhores oportunidades.",
+      titleKey: "whitelabel.services.operation247.title",
+      descriptionKey: "whitelabel.services.operation247.description",
       gradient: "from-blue-600 to-cyan-500"
     },
     {
@@ -51,8 +76,8 @@ export default function Whitelabel() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
-      title: "Spreads Otimizados",
-      description: "Taxas ultra-competitivas e transparência total. Maximize seus resultados com os melhores preços do mercado.",
+      titleKey: "whitelabel.services.optimizedSpreads.title",
+      descriptionKey: "whitelabel.services.optimizedSpreads.description",
       gradient: "from-cyan-600 to-blue-500"
     },
     {
@@ -61,8 +86,8 @@ export default function Whitelabel() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
-      title: "Expertise Web3 & DeFi",
-      description: "Time especializado em finanças descentralizadas que agrega inteligência estratégica às suas operações.",
+      titleKey: "whitelabel.services.web3Expertise.title",
+      descriptionKey: "whitelabel.services.web3Expertise.description",
       gradient: "from-blue-500 to-cyan-600"
     }
   ];
@@ -80,19 +105,21 @@ export default function Whitelabel() {
         <div className="text-center mb-12 sm:mb-16">
           <div data-wl="badge" className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-blue-700">Nossos Serviços Premium</span>
+            <span data-i18n="whitelabel.badge" className="text-sm font-medium text-blue-700">
+              Nossos Serviços Premium
+            </span>
           </div>
           
           <h2 data-wl="heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            <span className="block mb-2 leading-tight">
+            <span data-i18n="whitelabel.heading.line1" className="block mb-2 leading-tight">
               Excelência em Cada
             </span>
-            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-tight">
+            <span data-i18n="whitelabel.heading.line2" className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-tight">
               Operação Executada
             </span>
           </h2>
           
-          <p data-wl="subtitle" className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-600 leading-relaxed">
+          <p data-wl="subtitle" data-i18n="whitelabel.subtitle" className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-600 leading-relaxed">
             Cinco pilares fundamentais que garantem o sucesso das suas operações institucionais
           </p>
         </div>
@@ -118,13 +145,13 @@ export default function Whitelabel() {
                 </div>
 
                 {/* Title - Tamanho padronizado */}
-                <h3 className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
-                  {service.title}
+                <h3 data-i18n={service.titleKey} className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                  {/* Texto será substituído pela tradução */}
                 </h3>
 
                 {/* Description - Tamanho padronizado */}
-                <p className="text-slate-600 leading-relaxed text-sm sm:text-base group-hover:text-slate-700 transition-colors duration-300 flex-1">
-                  {service.description}
+                <p data-i18n={service.descriptionKey} className="text-slate-600 leading-relaxed text-sm sm:text-base group-hover:text-slate-700 transition-colors duration-300 flex-1">
+                  {/* Texto será substituído pela tradução */}
                 </p>
               </div>
             </div>
@@ -152,13 +179,13 @@ export default function Whitelabel() {
                 </div>
 
                 {/* Title - Tamanho padronizado */}
-                <h3 className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
-                  {service.title}
+                <h3 data-i18n={service.titleKey} className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                  {/* Texto será substituído pela tradução */}
                 </h3>
 
                 {/* Description - Tamanho padronizado */}
-                <p className="text-slate-600 leading-relaxed text-sm sm:text-base group-hover:text-slate-700 transition-colors duration-300 flex-1">
-                  {service.description}
+                <p data-i18n={service.descriptionKey} className="text-slate-600 leading-relaxed text-sm sm:text-base group-hover:text-slate-700 transition-colors duration-300 flex-1">
+                  {/* Texto será substituído pela tradução */}
                 </p>
               </div>
             </div>
@@ -175,18 +202,22 @@ export default function Whitelabel() {
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-4">
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-white/90">Solução Personalizada</span>
+                <span data-i18n="whitelabel.cta.badge" className="text-sm font-medium text-white/90">
+                  Solução Personalizada
+                </span>
               </div>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-              Transforme Sua Estratégia
-              <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
+              <span data-i18n="whitelabel.cta.heading.line1" className="block">
+                Transforme Sua Estratégia
+              </span>
+              <span data-i18n="whitelabel.cta.heading.line2" className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
                 de Liquidez Hoje
               </span>
             </h3>
             
-            <p className="text-lg sm:text-xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
+            <p data-i18n="whitelabel.cta.description" className="text-lg sm:text-xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
               Conecte-se com nossa mesa de operações e descubra como maximizar 
               seus resultados com liquidez institucional de verdade.
             </p>
@@ -199,7 +230,7 @@ export default function Whitelabel() {
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                Quero Acesso Agora
+                <span data-i18n="whitelabel.cta.buttons.primary">Quero Acesso Agora</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -212,7 +243,7 @@ export default function Whitelabel() {
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                Ver Liquidez ao Vivo
+                <span data-i18n="whitelabel.cta.buttons.secondary">Ver Liquidez ao Vivo</span>
               </a>
             </div>
 
@@ -221,15 +252,21 @@ export default function Whitelabel() {
               <div className="flex flex-wrap justify-center items-center gap-6 text-white/80">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">Aprovação em 24h</span>
+                  <span data-i18n="whitelabel.cta.trustIndicators.approval" className="text-sm font-medium">
+                    Aprovação em 24h
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <span className="text-sm font-medium">Setup em 5 minutos</span>
+                  <span data-i18n="whitelabel.cta.trustIndicators.setup" className="text-sm font-medium">
+                    Setup em 5 minutos
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  <span className="text-sm font-medium">Suporte 24/7</span>
+                  <span data-i18n="whitelabel.cta.trustIndicators.support" className="text-sm font-medium">
+                    Suporte 24/7
+                  </span>
                 </div>
               </div>
             </div>

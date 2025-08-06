@@ -193,15 +193,6 @@ export const initFinalCtaAnimations = () => {
         });
       });
     }
-
-    // Form container glow effect
-    gsap.to(formContainer, {
-      filter: "drop-shadow(0 0 30px rgba(59, 130, 246, 0.1))",
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "power2.inOut"
-    });
   }
 
   // Trust indicators pulsing animation
@@ -232,30 +223,6 @@ export const initFinalCtaAnimations = () => {
     }
   }
 
-  // Company logo animation
-  const companyLogo = section.querySelector('img[alt="Axia Digital Solutions"]');
-  if (companyLogo) {
-    gsap.to(companyLogo, {
-      rotate: 360,
-      duration: 20,
-      repeat: -1,
-      ease: "none"
-    });
-  }
-
-  // Background elements movement
-  const backgroundElements = section.querySelectorAll('.absolute.blur-3xl');
-  backgroundElements.forEach((element, index) => {
-    gsap.to(element, {
-      x: "+=40",
-      y: "+=30",
-      duration: 10 + (index * 2),
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-      delay: index * 3
-    });
-  });
 
   // Contact info hover animation
   const contactLinks = section.querySelectorAll('a[href^="mailto"]');
@@ -297,20 +264,6 @@ export const initFinalCtaAnimations = () => {
     });
   });
 
-  // Floating animation for benefit icons
-  benefitCards.forEach((card, index) => {
-    const icon = card.querySelector('.bg-gradient-to-br');
-    if (icon) {
-      gsap.to(icon, {
-        y: "+=5",
-        duration: 2.5 + (index * 0.3),
-        repeat: -1,
-        yoyo: true,
-        ease: "power2.inOut",
-        delay: index * 0.5
-      });
-    }
-  });
 
   return {
     cleanup: () => {

@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import { initFinalCtaAnimations } from '../gsap/FinalCta';
 import Image from 'next/image';
 
 export default function FinalCta() {
+  const { language, t } = useTranslation();
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -16,8 +18,29 @@ export default function FinalCta() {
 
   useEffect(() => {
     const cleanup = initFinalCtaAnimations();
-    
   }, []);
+
+  // Atualizar conteúdo quando as traduções mudarem
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const translation = t(key);
+          if (translation && translation !== key) {
+            if (translation.includes('<') && translation.includes('>')) {
+              element.innerHTML = translation;
+            } else {
+              element.textContent = translation;
+            }
+          }
+        }
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [language, t]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -68,18 +91,16 @@ export default function FinalCta() {
         <div className="text-center mb-12 sm:mb-16">
           <div data-cta="badge" className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-blue-700">Comece hoje mesmo</span>
+            <span data-i18n="finalCta.badge" className="text-sm font-medium text-blue-700">
+              Comece hoje mesmo
+            </span>
           </div>
           
-          <h2 data-cta="heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            <span className="block mb-2 leading-tight">
-              Pronto para revolucionar
-              suas operações cripto?
-            </span>
-
+          <h2 data-cta="heading" data-i18n="finalCta.heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+            Pronto para revolucionar suas operações cripto?
           </h2>
           
-          <p data-cta="subtitle" className="text-lg sm:text-xl max-w-4xl mx-auto text-gray-600 leading-relaxed">
+          <p data-cta="subtitle" data-i18n="finalCta.subtitle" className="text-lg sm:text-xl max-w-4xl mx-auto text-gray-600 leading-relaxed">
             Entre em contato conosco e descubra como nossa liquidez institucional pode transformar seus resultados
           </p>
         </div>
@@ -95,13 +116,13 @@ export default function FinalCta() {
                 height={100}
                 className="mb-6"
               />
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-6">
+              <h3 data-i18n="finalCta.companyInfo.title" className="text-2xl sm:text-3xl font-bold text-slate-800 mb-6">
                 Axia Digital Solutions
               </h3>
             </div>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
-                Somos especialistas em liquidez cripto institucional, oferecendo soluções personalizadas para empresas que buscam maximizar seus resultados no mercado digital.
-              </p>
+            <p data-i18n="finalCta.companyInfo.description" className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
+              Somos especialistas em liquidez cripto institucional, oferecendo soluções personalizadas para empresas que buscam maximizar seus resultados no mercado digital.
+            </p>
 
             {/* Key Benefits */}
             <div className="grid gap-6">
@@ -112,8 +133,12 @@ export default function FinalCta() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-slate-800 mb-2">Resposta em 1 hora</h4>
-                  <p className="text-slate-600 text-sm sm:text-base">Nossa equipe responde todas as solicitações em até 1 hora durante horário comercial</p>
+                  <h4 data-i18n="finalCta.companyInfo.benefits.response.title" className="font-bold text-lg text-slate-800 mb-2">
+                    Resposta em 1 hora
+                  </h4>
+                  <p data-i18n="finalCta.companyInfo.benefits.response.description" className="text-slate-600 text-sm sm:text-base">
+                    Nossa equipe responde todas as solicitações em até 1 hora durante horário comercial
+                  </p>
                 </div>
               </div>
 
@@ -124,8 +149,12 @@ export default function FinalCta() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-slate-800 mb-2">Setup em 24h</h4>
-                  <p className="text-slate-600 text-sm sm:text-base">Após aprovação, sua conta fica operacional em até 24 horas</p>
+                  <h4 data-i18n="finalCta.companyInfo.benefits.setup.title" className="font-bold text-lg text-slate-800 mb-2">
+                    Setup em 24h
+                  </h4>
+                  <p data-i18n="finalCta.companyInfo.benefits.setup.description" className="text-slate-600 text-sm sm:text-base">
+                    Após aprovação, sua conta fica operacional em até 24 horas
+                  </p>
                 </div>
               </div>
 
@@ -136,21 +165,29 @@ export default function FinalCta() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-slate-800 mb-2">Suporte 24/7</h4>
-                  <p className="text-slate-600 text-sm sm:text-base">Mercado global que nunca para, suporte que nunca falha</p>
+                  <h4 data-i18n="finalCta.companyInfo.benefits.support.title" className="font-bold text-lg text-slate-800 mb-2">
+                    Suporte 24/7
+                  </h4>
+                  <p data-i18n="finalCta.companyInfo.benefits.support.description" className="text-slate-600 text-sm sm:text-base">
+                    Mercado global que nunca para, suporte que nunca falha
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-4">
-              <h4 className="font-bold text-lg text-slate-800 mb-4">Outras formas de contato:</h4>
+              <h4 data-i18n="finalCta.companyInfo.contactInfo.title" className="font-bold text-lg text-slate-800 mb-4">
+                Outras formas de contato:
+              </h4>
               <div className="space-y-3">
                 <a href="mailto:info@axiadigitalsolutions.com" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@axiadigitalsolutions.com
+                  <span data-i18n="finalCta.companyInfo.contactInfo.email">
+                    info@axiadigitalsolutions.com
+                  </span>
                 </a>
               </div>
             </div>
@@ -159,17 +196,17 @@ export default function FinalCta() {
           {/* Contact Form */}
           <div data-cta="form-container" className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 sm:p-10">
             <div className="mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+              <h3 data-i18n="finalCta.form.title" className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
                 Fale conosco
               </h3>
-              <p className="text-slate-600 text-base sm:text-lg">
+              <p data-i18n="finalCta.form.subtitle" className="text-slate-600 text-base sm:text-lg">
                 Preencha o formulário abaixo e nossa equipe entrará em contato em até 1 hora
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="nome" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="nome" data-i18n="finalCta.form.fields.name.label" className="block text-sm font-semibold text-slate-700 mb-2">
                   Nome Completo *
                 </label>
                 <input
@@ -179,13 +216,14 @@ export default function FinalCta() {
                   value={formData.nome}
                   onChange={handleInputChange}
                   required
+                  data-i18n-placeholder="finalCta.form.fields.name.placeholder"
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
-                  placeholder="Seu nome completo"
+                  placeholder={t('finalCta.form.fields.name.placeholder') || 'Seu nome completo'}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="email" data-i18n="finalCta.form.fields.email.label" className="block text-sm font-semibold text-slate-700 mb-2">
                   E-mail *
                 </label>
                 <input
@@ -196,12 +234,12 @@ export default function FinalCta() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
-                  placeholder="seu@email.com"
+                  placeholder={t('finalCta.form.fields.email.placeholder') || 'seu@email.com'}
                 />
               </div>
 
               <div>
-                <label htmlFor="assunto" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="assunto" data-i18n="finalCta.form.fields.subject.label" className="block text-sm font-semibold text-slate-700 mb-2">
                   Assunto *
                 </label>
                 <select
@@ -212,19 +250,35 @@ export default function FinalCta() {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm"
                 >
-                  <option value="">Selecione um assunto</option>
-                  <option value="Mesa OTC - Informações Gerais">Mesa OTC - Informações Gerais</option>
-                  <option value="Integração API">Integração API</option>
-                  <option value="Cross-Border Payments">Cross-Border Payments</option>
-                  <option value="Volumes Grandes (+R$ 1M)">Volumes Grandes (+R$ 1M)</option>
-                  <option value="Suporte Técnico">Suporte Técnico</option>
-                  <option value="Parceria Comercial">Parceria Comercial</option>
-                  <option value="Outros">Outros</option>
+                  <option value="" data-i18n="finalCta.form.fields.subject.placeholder">
+                    {t('finalCta.form.fields.subject.placeholder') || 'Selecione um assunto'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.otc') || 'Mesa OTC - Informações Gerais'}>
+                    {t('finalCta.form.fields.subject.options.otc') || 'Mesa OTC - Informações Gerais'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.api') || 'Integração API'}>
+                    {t('finalCta.form.fields.subject.options.api') || 'Integração API'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.crossBorder') || 'Cross-Border Payments'}>
+                    {t('finalCta.form.fields.subject.options.crossBorder') || 'Cross-Border Payments'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.largeVolumes') || 'Volumes Grandes (+R$ 1M)'}>
+                    {t('finalCta.form.fields.subject.options.largeVolumes') || 'Volumes Grandes (+R$ 1M)'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.support') || 'Suporte Técnico'}>
+                    {t('finalCta.form.fields.subject.options.support') || 'Suporte Técnico'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.partnership') || 'Parceria Comercial'}>
+                    {t('finalCta.form.fields.subject.options.partnership') || 'Parceria Comercial'}
+                  </option>
+                  <option value={t('finalCta.form.fields.subject.options.others') || 'Outros'}>
+                    {t('finalCta.form.fields.subject.options.others') || 'Outros'}
+                  </option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="mensagem" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="mensagem" data-i18n="finalCta.form.fields.message.label" className="block text-sm font-semibold text-slate-700 mb-2">
                   Mensagem *
                 </label>
                 <textarea
@@ -235,7 +289,7 @@ export default function FinalCta() {
                   required
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white/80 backdrop-blur-sm resize-none"
-                  placeholder="Conte-nos mais sobre suas necessidades, volume esperado e como podemos ajudar..."
+                  placeholder={t('finalCta.form.fields.message.placeholder') || 'Conte-nos mais sobre suas necessidades, volume esperado e como podemos ajudar...'}
                 />
               </div>
 
@@ -258,23 +312,23 @@ export default function FinalCta() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Enviando...
+                    <span data-i18n="finalCta.form.button.submitting">Enviando...</span>
                   </span>
                 ) : submitStatus === 'success' ? (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Mensagem enviada!
+                    <span data-i18n="finalCta.form.button.success">Mensagem enviada!</span>
                   </span>
                 ) : submitStatus === 'error' ? (
-                  'Erro - Tente novamente'
+                  <span data-i18n="finalCta.form.button.error">Erro - Tente novamente</span>
                 ) : (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                     </svg>
-                    Enviar mensagem
+                    <span data-i18n="finalCta.form.button.idle">Enviar mensagem</span>
                   </span>
                 )}
               </button>
@@ -285,15 +339,21 @@ export default function FinalCta() {
               <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span>Resposta garantida em 1h</span>
+                  <span data-i18n="finalCta.form.trustIndicators.response">
+                    Resposta garantida em 1h
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <span>100% confidencial</span>
+                  <span data-i18n="finalCta.form.trustIndicators.confidential">
+                    100% confidencial
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  <span>Sem compromisso</span>
+                  <span data-i18n="finalCta.form.trustIndicators.noCommitment">
+                    Sem compromisso
+                  </span>
                 </div>
               </div>
             </div>

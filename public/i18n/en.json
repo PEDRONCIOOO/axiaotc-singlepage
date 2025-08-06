@@ -1,0 +1,394 @@
+{
+  "hero": {
+    "badge": "Institutional liquidity for large volumes",
+    "heading": {
+      "line1": "Direct Access to",
+      "line2": "Crypto Liquidity",
+      "line3": "for Large Volumes"
+    },
+    "description": "For <strong>investors and companies</strong> that need agility, security and a specialist partner to move <strong>from $4,000</strong> without impacting the market and without traditional system constraints.",
+    "buttons": {
+      "primary": "Talk to a specialist",
+      "secondary": "How it works"
+    },
+    "stats": {
+      "amount": "$600+ million",
+      "description": "moved in the last decade"
+    }
+  },
+  "features": {
+    "badge": "Traditional market problems",
+    "heading": {
+      "line1": "Is the traditional market",
+      "line2": "limiting your potential?"
+    },
+    "subtitle": "If you deal with large volumes, you already know the obstacles: operations that lose value along the way (slippage), the slowness of a SWIFT transfer, the bureaucracy that locks up your capital, and the lack of privacy that exposes your strategy. Moving millions shouldn't be a slow, expensive, and risky process.",
+    "problems": {
+      "valueLoss": {
+        "title": "Value Loss",
+        "description": "With the constant devaluation of local currency, your money loses value every day."
+      },
+      "valueLoop": {
+        "title": "Value Loop",
+        "description": "Transferring money internationally can lead to significant value loss due to exchange rates and fees."
+      },
+      "bureaucracy": {
+        "title": "Bureaucracy and Slowness",
+        "description": "Bureaucratic and slow processes can delay your transactions and investments."
+      },
+      "genericSupport": {
+        "title": "Generic Support",
+        "description": "Limited customer service and lack of personalized support."
+      },
+      "lackPrivacy": {
+        "title": "Lack of Privacy",
+        "description": "Traditional financial transactions often lack privacy and security."
+      }
+    }
+  },
+  "proofOfReserves": {
+    "badge": "Exclusive access to institutional liquidity",
+    "heading": {
+      "line1": "Welcome to the Backstage of",
+      "line2": "Crypto Liquidity"
+    },
+    "subtitle": "Forget everything you know about exchanges. Axia is not a broker open to everyone.",
+    "description": {
+      "p1": "We are your <strong>private OTC trading desk</strong>, a direct channel to the liquidity you need, when you need it.",
+      "p2": "Here, your trades are executed confidentially and on demand. You have access to a <strong>specialist partner</strong> who understands your goals and structures operations to maximize your results.",
+      "p3": "Whether to convert cash, make international payments, or execute complex investment strategies."
+    },
+    "benefits": {
+      "deepLiquidity": {
+        "title": "Deep Liquidity",
+        "description": "Direct access to the market's deepest order books"
+      },
+      "noSlippage": {
+        "title": "No Slippage Execution",
+        "description": "Guaranteed prices even for large volume operations"
+      },
+      "institutionalTrading": {
+        "title": "Institutional Trading",
+        "description": "Specialized tools and support for professional investors"
+      }
+    },
+    "chart": {
+      "realTime": "Real Time",
+      "description": "Order Book BTC/USD • Real-time update simulation"
+    }
+  },
+  "apiSection": {
+    "readyStart": "Ready to start? Contact us now",
+    "badge": "Simplified process",
+    "heading": {
+      "line1": "Your Access to the Trading Desk",
+      "line2": "in 3 Simple Steps"
+    },
+    "subtitle": "Optimized process to quickly connect you to institutional liquidity",
+    "steps": {
+      "step1": {
+        "title": "Step 1: Smart Pre-Registration",
+        "description": "You fill out a quick form with your profile. A specialist from our team will contact you via WhatsApp to understand your demand, align expectations and validate your entry."
+      },
+      "step2": {
+        "title": "Step 2: Account Activation",
+        "description": "After validation, your account is activated. You will have a direct channel with our team to quote and execute your operations with complete confidentiality and personalized support."
+      },
+      "step3": {
+        "title": "Step 3: Trade with Immediate Liquidity",
+        "description": "Buy or sell large volumes of crypto assets (BTC, stablecoins and more) with settlement in Real, Dollar or Euro. No time limits, no borders and with the security of an institutional structure."
+      }
+    }
+  },
+  "whitelabel": {
+    "badge": "Our Premium Services",
+    "heading": {
+      "line1": "Excellence in Every",
+      "line2": "Operation Executed"
+    },
+    "subtitle": "Five fundamental pillars that guarantee the success of your institutional operations",
+    "services": {
+      "institutionalSecurity": {
+        "title": "Institutional Security",
+        "description": "Bulletproof infrastructure with military protocols and validated processes for large volume movements."
+      },
+      "multiCurrencyLiquidity": {
+        "title": "Multi-Currency Liquidity",
+        "description": "Instant conversion between BRL, USD and EUR with direct access to the largest global liquidity pools."
+      },
+      "operation247": {
+        "title": "24/7 Operation",
+        "description": "Global market that never sleeps. Execute operations anytime and capture the best opportunities."
+      },
+      "optimizedSpreads": {
+        "title": "Optimized Spreads",
+        "description": "Ultra-competitive rates and total transparency. Maximize your results with the best market prices."
+      },
+      "web3Expertise": {
+        "title": "Web3 & DeFi Expertise",
+        "description": "Team specialized in decentralized finance that adds strategic intelligence to your operations."
+      }
+    },
+    "cta": {
+      "badge": "Personalized Solution",
+      "heading": {
+        "line1": "Transform Your Liquidity",
+        "line2": "Strategy Today"
+      },
+      "description": "Connect with our trading desk and discover how to maximize your results with real institutional liquidity.",
+      "buttons": {
+        "primary": "I Want Access Now",
+        "secondary": "See Live Liquidity"
+      },
+      "trustIndicators": {
+        "approval": "24h Approval",
+        "setup": "5-minute Setup",
+        "support": "24/7 Support"
+      }
+    }
+  },
+  "useCases": {
+    "badge": "Featured solutions",
+    "heading": {
+      "line1": "More than an OTC Desk.",
+      "line2": "A Strategic Partnership."
+    },
+    "subtitle": "Our technology and expertise allow us to go beyond the basics, offering customized solutions that meet each client's specific needs.",
+    "benefitsTitle": "Key Benefits",
+    "actionButton": "Learn more about this solution",
+    "cases": {
+      "crossBorder": {
+        "title": "Frictionless Cross-Border",
+        "subtitle": "Reimagined international payments",
+        "description": "Transfer value across borders effortlessly. Convert, pay and receive in crypto or fiat currency with the same ease, always choosing the most efficient option for your needs.",
+        "benefits": {
+          "globalAccess": {
+            "title": "Instant Global Access",
+            "description": "Access to Brazilian and international markets without bureaucracy or geographic restrictions"
+          },
+          "multiCurrency": {
+            "title": "Multi-Currency Conversion",
+            "description": "Automatic conversion to USD, EUR, BRL and other currencies with optimized rates"
+          },
+          "expressSettlement": {
+            "title": "Express Settlement",
+            "description": "Payments processed in seconds, not days like traditional banking system"
+          },
+          "substantialSavings": {
+            "title": "Substantial Savings",
+            "description": "Reduce transfer costs by up to 85% compared to traditional SWIFT"
+          }
+        }
+      },
+      "apiLiquidity": {
+        "title": "Crypto Liquidity API",
+        "subtitle": "Powerful technological differentiator",
+        "description": "Integrate crypto liquidity directly into your platform. Our API offers institutional access to deep liquidity pools with guaranteed execution for large volumes.",
+        "benefits": {
+          "simplifiedIntegration": {
+            "title": "Simplified Integration",
+            "description": "Complete RESTful API with detailed documentation and SDKs for major languages"
+          },
+          "deepLiquidity": {
+            "title": "Deep Liquidity",
+            "description": "Access to aggregated pools from multiple exchanges with guaranteed execution"
+          },
+          "intelligentAutomation": {
+            "title": "Intelligent Automation",
+            "description": "Routing algorithms that automatically find the best prices"
+          },
+          "advancedAnalytics": {
+            "title": "Advanced Analytics",
+            "description": "Real-time dashboard with detailed performance and execution metrics"
+          }
+        }
+      }
+    }
+  },
+  "faq": {
+    "badge": "Frequently asked questions",
+    "heading": {
+      "line1": "Everything you need",
+      "line2": "to know to get started"
+    },
+    "subheading": "Direct answers about our institutional crypto liquidity services",
+    "questions": [
+      {
+        "question": "What is the minimum amount to operate on the OTC desk?",
+        "answer": "We work with operations starting from $4,000. This amount ensures you have access to our institutional liquidity and specialized support that makes the difference in large transactions."
+      },
+      {
+        "question": "How do you guarantee the best market prices?",
+        "answer": "Our OTC desk has direct access to the deepest order books in the global market. We aggregate liquidity from multiple exchanges and negotiate fixed prices without slippage, even for million-dollar volumes."
+      },
+      {
+        "question": "How long does it take to execute an operation?",
+        "answer": "Operations are executed in real-time during desk operating hours (24/7). For fiat currency conversions, settlement occurs via instant transfer in up to 3 seconds or bank transfer within 2 business hours."
+      },
+      {
+        "question": "Do you offer support for complex strategies?",
+        "answer": "Yes! Our team specializes in structuring complex operations such as cross-border payments, currency hedging, international arbitrage, and institutional DeFi strategies. Each client has a dedicated consultant."
+      },
+      {
+        "question": "Which cryptocurrencies do you operate with?",
+        "answer": "We operate with Bitcoin (BTC), Ethereum (ETH), stablecoins (USDT, USDC, DAI), and over 50 major crypto assets. For specific assets or very large volumes, consult our desk to verify availability."
+      },
+      {
+        "question": "How does conversion to different fiat currencies work?",
+        "answer": "We offer direct conversion to BRL, USD, and EUR with institutional rates. We use our own liquidity pools and strategic banking partnerships to guarantee the best market conditions."
+      },
+      {
+        "question": "What is Axia's differential compared to other exchanges?",
+        "answer": "We are not a traditional exchange. We are your private trading desk with: guaranteed institutional liquidity, fixed prices without slippage, specialized 24/7 support, confidential execution, and personalized operation structuring."
+      },
+      {
+        "question": "How can I integrate the liquidity API into my platform?",
+        "answer": "Our RESTful API offers programmatic access to institutional liquidity. We provide complete documentation, SDKs for major languages, and dedicated technical support throughout the integration."
+      },
+      {
+        "question": "Do you serve companies and individuals?",
+        "answer": "Yes, we serve both individuals and legal entities that operate with large volumes. For companies, we offer corporate solutions including multi-users, compliance controls, and customized reports."
+      },
+      {
+        "question": "How do you ensure operation security?",
+        "answer": "We use military-grade security infrastructure with: institutional multisig custody, cold storage for 95% of funds, quarterly security audits, rigorous KYC/AML compliance, and cybercrime insurance."
+      },
+      {
+        "question": "Can I operate outside business hours?",
+        "answer": "Absolutely! The crypto market never stops and our desk operates 24/7. You can execute operations at any time, capturing opportunities in Asian, European, or American markets without limitations."
+      },
+      {
+        "question": "How to start operating today?",
+        "answer": "Simple: (1) Fill out our pre-registration form, (2) Our team will contact you within 1 hour, (3) After validation, your account is activated within 24h. You'll be operating with institutional liquidity the same day."
+      }
+    ],
+    "cta": {
+      "title": "Still have questions?",
+      "description": "Our team of specialists is ready to clarify any specific questions about your case.",
+      "buttons": {
+        "primary": "Talk to a specialist",
+        "secondary": "Direct WhatsApp"
+      }
+    }
+  },
+  "finalCta": {
+  "badge": "Start today",
+  "heading": "Ready to revolutionize your crypto operations?",
+  "subtitle": "Contact us and discover how our institutional liquidity can transform your results",
+  "companyInfo": {
+    "title": "Axia Digital Solutions",
+    "description": "We are specialists in institutional crypto liquidity, offering personalized solutions for companies seeking to maximize their results in the digital market.",
+    "benefits": {
+      "response": {
+        "title": "1-hour response",
+        "description": "Our team responds to all requests within 1 hour during business hours"
+      },
+      "setup": {
+        "title": "24h setup",
+        "description": "After approval, your account becomes operational within 24 hours"
+      },
+      "support": {
+        "title": "24/7 support",
+        "description": "Global market that never stops, support that never fails"
+      }
+    },
+    "contactInfo": {
+      "title": "Other contact methods:",
+      "email": "info@axiadigitalsolutions.com"
+    }
+  },
+  "form": {
+    "title": "Contact us",
+    "subtitle": "Fill out the form below and our team will contact you within 1 hour",
+    "fields": {
+      "name": {
+        "label": "Full Name *",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email *",
+        "placeholder": "your@email.com"
+      },
+      "subject": {
+        "label": "Subject *",
+        "placeholder": "Select a subject",
+        "options": {
+          "otc": "OTC Desk - General Information",
+          "api": "API Integration",
+          "crossBorder": "Cross-Border Payments",
+          "largeVolumes": "Large Volumes (+$200K)",
+          "support": "Technical Support",
+          "partnership": "Business Partnership",
+          "others": "Others"
+        }
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "Tell us more about your needs, expected volume and how we can help..."
+      }
+    },
+    "button": {
+      "idle": "Send message",
+      "submitting": "Sending...",
+      "success": "Message sent!",
+      "error": "Error - Try again"
+    },
+    "trustIndicators": {
+      "response": "Guaranteed 1h response",
+      "confidential": "100% confidential",
+      "noCommitment": "No commitment"
+    }
+  }
+  },
+  "footer": {
+  "company": {
+    "name": "Axia Digital Solutions",
+    "tagline": "Institutional crypto liquidity",
+    "description": "Specialists in institutional crypto liquidity, offering personalized solutions for companies seeking to maximize their results in the digital market.",
+    "contact": {
+      "title": "Direct contact:",
+      "emailLabel": "Business email",
+      "email": "info@axiadigitalsolutions.com"
+    }
+  },
+  "quickLinks": {
+    "title": "Quick Links",
+    "links": {
+      "howItWorks": "How It Works",
+      "services": "Our Services",
+      "useCases": "Use Cases",
+      "faq": "FAQ",
+      "contact": "Contact"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "list": {
+      "otcDesk": "Institutional OTC Desk",
+      "crossBorder": "Cross-Border Payments",
+      "liquidityApi": "Liquidity API",
+      "multiCurrency": "Multi-Currency Conversion",
+      "support": "24/7 Support"
+    }
+  },
+  "bottom": {
+    "copyright": "© 2025 Axia Digital Solutions. All rights reserved.",
+    "cnpj": "CNPJ: 55.836.776/0001-38 | Leader in institutional crypto liquidity",
+    "trustIndicators": {
+      "systemOnline": "System Online",
+      "sslSecurity": "SSL Security"
+    }
+  }
+  },
+  "header": {
+  "logo": {
+    "alt": "Axia Logo"
+  },
+  "navigation": {
+    "howItWorks": "How It Works",
+    "useCases": "Use Cases",
+    "faq": "FAQ",
+    "contact": "Contact"
+  }
+  }
+}

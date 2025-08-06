@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import { initFeaturesAnimations } from '../gsap/Features';
 
 export default function Features() {
+  const { language, t } = useTranslation();
+
   useEffect(() => {
     const cleanup = initFeaturesAnimations();
     
@@ -14,6 +17,29 @@ export default function Features() {
     };
   }, []);
 
+  // Atualizar conteúdo quando as traduções mudarem
+  useEffect(() => {
+    // Pequeno delay para garantir que o DOM esteja pronto
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const translation = t(key);
+          if (translation && translation !== key) {
+            if (translation.includes('<') && translation.includes('>')) {
+              element.innerHTML = translation;
+            } else {
+              element.textContent = translation;
+            }
+          }
+        }
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [language, t]);
+
   const problemsData = [
     {
       icon: (
@@ -21,8 +47,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
         </svg>
       ),
-      title: "Perda de Valor",
-      description: "Com a desvalorização constante do real, seu dinheiro perde valor a cada dia que passa.",
+      titleKey: "features.problems.valueLoop.title",
+      descriptionKey: "features.problems.valueLoop.description",
       gradient: "from-red-500 to-red-600"
     },
     {
@@ -31,8 +57,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Burocracia e Lentidão",
-      description: "Processos burocráticos e lentos podem atrasar suas transações e investimentos.",
+      titleKey: "features.problems.bureaucracy.title",
+      descriptionKey: "features.problems.bureaucracy.description",
       gradient: "from-red-600 to-red-700"
     },
     {
@@ -41,8 +67,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Suporte Genérico",
-      description: "Atendimento ao cliente limitado e falta de suporte personalizado.",
+      titleKey: "features.problems.genericSupport.title",
+      descriptionKey: "features.problems.genericSupport.description",
       gradient: "from-red-500 to-red-700"
     },
     {
@@ -51,8 +77,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
       ),
-      title: "Falta de Sigilo",
-      description: "As transações financeiras tradicionais muitas vezes carecem de privacidade e segurança.",
+      titleKey: "features.problems.lackPrivacy.title",
+      descriptionKey: "features.problems.lackPrivacy.description",
       gradient: "from-red-600 to-red-500"
     }
   ];
@@ -71,19 +97,19 @@ export default function Features() {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div data-features="badge" className="inline-flex items-center gap-2 bg-red-50 border border-red-200 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-xs sm:text-sm font-medium text-red-700">Problemas do mercado tradicional</span>
+            <span data-i18n="features.badge" className="text-xs sm:text-sm font-medium text-red-700">Problemas do mercado tradicional</span>
           </div>
           
           <h2 data-features="heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-500 to-cyan-500 mb-2">
+            <span data-i18n="features.heading.line1" className="block bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-blue-500 to-cyan-500 mb-2">
               O mercado tradicional está
             </span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-700">
+            <span data-i18n="features.heading.line2" className="block bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-red-500 to-red-700">
               limitando seu potencial?
             </span>
           </h2>
           
-          <p data-features="subtitle" className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed px-2">
+          <p data-features="subtitle" data-i18n="features.subtitle" className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed px-2">
             Se você lida com grandes volumes, já conhece os obstáculos: operações que perdem valor no meio do caminho (slippage), a lentidão de uma remessa SWIFT, a burocracia que trava seu capital e a falta de privacidade que expõe sua estratégia. Mover milhões não deveria ser um processo lento, caro e arriscado.
           </p>
         </div>
@@ -104,11 +130,11 @@ export default function Features() {
                 <div className={`bg-gradient-to-br ${problem.gradient} p-3 rounded-xl inline-flex mb-4 text-white shadow-lg`}>
                   {problem.icon}
                 </div>
-                <h3 className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-slate-900 transition-colors">
-                  {problem.title}
+                <h3 data-i18n={problem.titleKey} className="font-bold text-lg sm:text-xl mb-3 text-slate-800 group-hover:text-slate-900 transition-colors">
+                  {/* Texto será substituído pela tradução */}
                 </h3>
-                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                  {problem.description}
+                <p data-i18n={problem.descriptionKey} className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  {/* Texto será substituído pela tradução */}
                 </p>
               </div>
               
@@ -117,8 +143,6 @@ export default function Features() {
             </div>
           ))}
         </div>
-
-        
       </div>
     </section>
   );

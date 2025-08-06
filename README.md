@@ -1,5 +1,6 @@
-V.1 TBRL-Landing Page
+V.2 Axia Otc - Single Page
 
+translate system en - pt br
 
 npm install
 

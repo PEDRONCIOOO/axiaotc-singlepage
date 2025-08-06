@@ -1,0 +1,394 @@
+{
+  "hero": {
+    "badge": "Liquidez institucional para grandes volumes",
+    "heading": {
+      "line1": "O Acesso Direto à",
+      "line2": "Liquidez Cripto",
+      "line3": "para Grandes Volumes"
+    },
+    "description": "Para <strong>investidores e empresas</strong> que precisam de agilidade, segurança e um parceiro especialista para movimentar <strong>a partir de R$20.000</strong> sem impactar o mercado e sem as travas do sistema tradicional.",
+    "buttons": {
+      "primary": "Fale com um especialista",
+      "secondary": "Como funciona"
+    },
+    "stats": {
+      "amount": "R$ 3+ bilhões",
+      "description": "movimentados na última década"
+    }
+  },
+  "features": {
+    "badge": "Problemas do mercado tradicional",
+    "heading": {
+      "line1": "O mercado tradicional está",
+      "line2": "limitando seu potencial?"
+    },
+    "subtitle": "Se você lida com grandes volumes, já conhece os obstáculos: operações que perdem valor no meio do caminho (slippage), a lentidão de uma remessa SWIFT, a burocracia que trava seu capital e a falta de privacidade que expõe sua estratégia. Mover milhões não deveria ser um processo lento, caro e arriscado.",
+    "problems": {
+      "valueLoss": {
+        "title": "Perda de Valor",
+        "description": "Com a desvalorização constante do real, seu dinheiro perde valor a cada dia que passa."
+      },
+      "valueLoop": {
+        "title": "Ciclo de Desvalorização",
+        "description": "Transferir dinheiro internacionalmente pode levar a uma perda significativa de valor devido às taxas de câmbio e tarifas."
+      },
+      "bureaucracy": {
+        "title": "Burocracia e Lentidão",
+        "description": "Processos burocráticos e lentos podem atrasar suas transações e investimentos."
+      },
+      "genericSupport": {
+        "title": "Suporte Genérico",
+        "description": "Atendimento ao cliente limitado e falta de suporte personalizado."
+      },
+      "lackPrivacy": {
+        "title": "Falta de Sigilo",
+        "description": "As transações financeiras tradicionais muitas vezes carecem de privacidade e segurança."
+      }
+    }
+  },
+  "proofOfReserves": {
+    "badge": "Acesso exclusivo à liquidez institucional",
+    "heading": {
+      "line1": "Bem-vindo aos Bastidores da",
+      "line2": "Liquidez Cripto"
+    },
+    "subtitle": "Esqueça tudo o que você conhece sobre exchanges. A Axia não é uma corretora aberta a todos.",
+    "description": {
+      "p1": "Somos sua <strong>mesa de operações (OTC) privada</strong>, um canal direto com a liquidez que você precisa, na hora que você precisa.",
+      "p2": "Aqui, suas negociações são executadas de forma confidencial e sob demanda. Você tem acesso a um <strong>parceiro especialista</strong> que entende suas metas e estrutura operações para maximizar seu resultado.",
+      "p3": "Seja para converter caixa, realizar pagamentos internacionais ou executar estratégias de investimento complexas."
+    },
+    "benefits": {
+      "deepLiquidity": {
+        "title": "Liquidez Profunda",
+        "description": "Acesso direto aos order books mais profundos do mercado"
+      },
+      "noSlippage": {
+        "title": "Execução Sem Slippage",
+        "description": "Preços garantidos mesmo para operações de grande volume"
+      },
+      "institutionalTrading": {
+        "title": "Trading Institucional",
+        "description": "Ferramentas e suporte especializados para investidores profissionais"
+      }
+    },
+    "chart": {
+      "realTime": "Tempo Real",
+      "description": "Order Book BTC/USD • Simulação da Atualização em tempo real"
+    }
+  },
+  "apiSection": {
+    "readyStart": "Pronto para começar? Entre em contato agora",
+    "badge": "Processo simplificado",
+    "heading": {
+      "line1": "Seu Acesso à Mesa",
+      "line2": "em 3 Passos Simples"
+    },
+    "subtitle": "Processo otimizado para conectar você rapidamente à liquidez institucional",
+    "steps": {
+      "step1": {
+        "title": "Passo 1: Pré-Cadastro Inteligente",
+        "description": "Você preenche um formulário rápido com seu perfil. Um especialista da nossa equipe entrará em contato via WhatsApp para entender sua demanda, alinhar expectativas e validar sua entrada."
+      },
+      "step2": {
+        "title": "Passo 2: Liberação da Conta",
+        "description": "Após a validação, sua conta é liberada. Você terá um canal direto com nossa equipe para cotar e executar suas operações com total sigilo e suporte personalizado."
+      },
+      "step3": {
+        "title": "Passo 3: Opere com Liquidez Imediata",
+        "description": "Compre ou venda grandes volumes de criptoativos (BTC, stablecoins e mais) com liquidação em Real, Dólar ou Euro. Sem limites de horário, sem fronteiras e com a segurança de uma estrutura institucional."
+      }
+    }
+  },
+  "whitelabel": {
+    "badge": "Nossos Serviços Premium",
+    "heading": {
+      "line1": "Excelência em Cada",
+      "line2": "Operação Executada"
+    },
+    "subtitle": "Cinco pilares fundamentais que garantem o sucesso das suas operações institucionais",
+    "services": {
+      "institutionalSecurity": {
+        "title": "Segurança Institucional",
+        "description": "Infraestrutura blindada com protocolos militares e processos validados para movimentações de grande volume."
+      },
+      "multiCurrencyLiquidity": {
+        "title": "Liquidez Multi-Moeda",
+        "description": "Conversão instantânea entre BRL, USD e EUR com acesso direto aos maiores pools de liquidez globais."
+      },
+      "operation247": {
+        "title": "Operação 24/7",
+        "description": "Mercado global que nunca dorme. Execute operações a qualquer momento e capture as melhores oportunidades."
+      },
+      "optimizedSpreads": {
+        "title": "Spreads Otimizados",
+        "description": "Taxas ultra-competitivas e transparência total. Maximize seus resultados com os melhores preços do mercado."
+      },
+      "web3Expertise": {
+        "title": "Expertise Web3 & DeFi",
+        "description": "Time especializado em finanças descentralizadas que agrega inteligência estratégica às suas operações."
+      }
+    },
+    "cta": {
+      "badge": "Solução Personalizada",
+      "heading": {
+        "line1": "Transforme Sua Estratégia",
+        "line2": "de Liquidez Hoje"
+      },
+      "description": "Conecte-se com nossa mesa de operações e descubra como maximizar seus resultados com liquidez institucional de verdade.",
+      "buttons": {
+        "primary": "Quero Acesso Agora",
+        "secondary": "Ver Liquidez ao Vivo"
+      },
+      "trustIndicators": {
+        "approval": "Aprovação em 24h",
+        "setup": "Setup em 5 minutos",
+        "support": "Suporte 24/7"
+      }
+    }
+  },
+  "useCases": {
+    "badge": "Soluções em destaque",
+    "heading": {
+      "line1": "Mais que uma Mesa de OTC.",
+      "line2": "Uma Parceria Estratégica."
+    },
+    "subtitle": "Nossa tecnologia e expertise nos permitem ir além do básico, oferecendo soluções personalizadas que atendem às necessidades específicas de cada cliente.",
+    "benefitsTitle": "Benefícios Principais",
+    "actionButton": "Saber mais sobre esta solução",
+    "cases": {
+      "crossBorder": {
+        "title": "Cross-Border Sem Fricção",
+        "subtitle": "Pagamentos internacionais reimaginados",
+        "description": "Transfira valores entre fronteiras sem esforço. Converta, pague e receba em cripto ou moeda fiduciária com a mesma facilidade, escolhendo sempre a opção mais eficiente para suas necessidades.",
+        "benefits": {
+          "globalAccess": {
+            "title": "Acesso Global Instantâneo",
+            "description": "Acesso ao mercado brasileiro e internacional sem burocracia ou restrições geográficas"
+          },
+          "multiCurrency": {
+            "title": "Conversão Multi-Moeda",
+            "description": "Conversão automática para USD, EUR, BRL e outras moedas com taxas otimizadas"
+          },
+          "expressSettlement": {
+            "title": "Liquidação Express",
+            "description": "Recebimentos processados em segundos, não em dias como o sistema bancário tradicional"
+          },
+          "substantialSavings": {
+            "title": "Economia Substancial",
+            "description": "Reduza custos de transferência em até 85% comparado ao SWIFT tradicional"
+          }
+        }
+      },
+      "apiLiquidity": {
+        "title": "API de Liquidez Crypto",
+        "subtitle": "Diferencial tecnológico poderoso",
+        "description": "Integre liquidez cripto diretamente em sua plataforma. Nossa API oferece acesso institucional a pools de liquidez profundos com execução garantida para grandes volumes.",
+        "benefits": {
+          "simplifiedIntegration": {
+            "title": "Integração Simplificada",
+            "description": "API RESTful completa com documentação detalhada e SDKs para principais linguagens"
+          },
+          "deepLiquidity": {
+            "title": "Liquidez Profunda",
+            "description": "Acesso a pools agregados de múltiplas exchanges com execução garantida"
+          },
+          "intelligentAutomation": {
+            "title": "Automação Inteligente",
+            "description": "Algoritmos de roteamento que encontram automaticamente os melhores preços"
+          },
+          "advancedAnalytics": {
+            "title": "Analytics Avançado",
+            "description": "Dashboard em tempo real com métricas detalhadas de performance e execução"
+          }
+        }
+      }
+    }
+  },
+  "faq":{
+    "badge": "Dúvidas frequentes",
+  "heading": {
+    "line1": "Tudo o que você precisa",
+    "line2": "saber para começar"
+  },
+  "subheading": "Respostas diretas sobre nossos serviços de liquidez cripto institucional",
+  "questions": [
+    {
+      "question": "Qual o valor mínimo para operar na mesa OTC?",
+      "answer": "Trabalhamos com operações a partir de R$ 20.000. Este valor garante que você tenha acesso à nossa liquidez institucional e ao suporte especializado que faz a diferença em grandes movimentações."
+    },
+    {
+      "question": "Como vocês garantem os melhores preços do mercado?",
+      "answer": "Nossa mesa OTC possui acesso direto aos order books mais profundos do mercado global. Agregamos liquidez de múltiplas exchanges e negociamos preços fixos sem slippage, mesmo para volumes milionários."
+    },
+    {
+      "question": "Quanto tempo leva para executar uma operação?",
+      "answer": "Operações são executadas em tempo real durante o horário de funcionamento da mesa (24/7). Para conversões em moeda fiduciária, a liquidação ocorre via PIX em até 3 segundos ou transferência bancária em até 2 horas úteis."
+    },
+    {
+      "question": "Vocês oferecem suporte para estratégias complexas?",
+      "answer": "Sim! Nossa equipe é especializada em estruturar operações complexas como cross-border payments, hedging cambial, arbitragem internacional e estratégias DeFi institucionais. Cada cliente tem um consultor dedicado."
+    },
+    {
+      "question": "Quais criptomoedas vocês operam?",
+      "answer": "Operamos com Bitcoin (BTC), Ethereum (ETH), stablecoins (USDT, USDC, DAI), e mais de 50 criptoativos principais. Para ativos específicos ou volumes muito grandes, consulte nossa mesa para verificar disponibilidade."
+    },
+    {
+      "question": "Como funciona a conversão para diferentes moedas fiduciárias?",
+      "answer": "Oferecemos conversão direta para BRL, USD e EUR com taxas institucionais. Utilizamos nossos pools de liquidez próprios e parcerias bancárias estratégicas para garantir as melhores condições do mercado."
+    },
+    {
+      "question": "Qual o diferencial da Axia para outras exchanges?",
+      "answer": "Não somos uma exchange tradicional. Somos sua mesa de operações privada com: liquidez institucional garantida, preços fixos sem slippage, suporte 24/7 especializado, execução confidencial e estruturação de operações personalizadas."
+    },
+    {
+      "question": "Como posso integrar a API de liquidez na minha plataforma?",
+      "answer": "Nossa API RESTful oferece acesso programático à liquidez institucional. Fornecemos documentação completa, SDKs para principais linguagens e suporte técnico dedicado durante toda a integração."
+    },
+    {
+      "question": "Vocês atendem empresas e pessoas físicas?",
+      "answer": "Sim, atendemos tanto pessoas físicas quanto jurídicas que operam com grandes volumes. Para empresas, oferecemos soluções corporativas incluindo multi-usuários, controles de compliance e relatórios personalizados."
+    },
+    {
+      "question": "Como garantem a segurança das operações?",
+      "answer": "Utilizamos infraestrutura de segurança militar com: custódia institucional multisig, cold storage para 95% dos fundos, auditorias de segurança trimestrais, compliance KYC/AML rigoroso e seguro contra crimes cibernéticos."
+    },
+    {
+      "question": "Posso operar fora do horário comercial?",
+      "answer": "Absolutamente! O mercado cripto nunca para e nossa mesa opera 24/7. Você pode executar operações a qualquer hora, capturando oportunidades em mercados asiáticos, europeus ou americanos sem limitações."
+    },
+    {
+      "question": "Como começar a operar hoje mesmo?",
+      "answer": "Simples: (1) Preencha nosso formulário de pré-cadastro, (2) Nossa equipe entrará em contato em até 1 hora, (3) Após validação, sua conta é liberada em até 24h. Você estará operando com liquidez institucional no mesmo dia."
+    }
+  ],
+    "cta": {
+    "title": "Ainda tem dúvidas?",
+    "description": "Nossa equipe de especialistas está pronta para esclarecer qualquer questão específica do seu caso.",
+    "buttons": {
+      "primary": "Falar com especialista",
+      "secondary": "WhatsApp direto"
+    }
+  }
+  },
+  "finalCta": {
+  "badge": "Comece hoje mesmo",
+  "heading": "Pronto para revolucionar suas operações cripto?",
+  "subtitle": "Entre em contato conosco e descubra como nossa liquidez institucional pode transformar seus resultados",
+  "companyInfo": {
+    "title": "Axia Digital Solutions",
+    "description": "Somos especialistas em liquidez cripto institucional, oferecendo soluções personalizadas para empresas que buscam maximizar seus resultados no mercado digital.",
+    "benefits": {
+      "response": {
+        "title": "Resposta em 1 hora",
+        "description": "Nossa equipe responde todas as solicitações em até 1 hora durante horário comercial"
+      },
+      "setup": {
+        "title": "Setup em 24h",
+        "description": "Após aprovação, sua conta fica operacional em até 24 horas"
+      },
+      "support": {
+        "title": "Suporte 24/7",
+        "description": "Mercado global que nunca para, suporte que nunca falha"
+      }
+    },
+    "contactInfo": {
+      "title": "Outras formas de contato:",
+      "email": "info@axiadigitalsolutions.com"
+    }
+  },
+  "form": {
+    "title": "Fale conosco",
+    "subtitle": "Preencha o formulário abaixo e nossa equipe entrará em contato em até 1 hora",
+    "fields": {
+      "name": {
+        "label": "Nome Completo *",
+        "placeholder": "Seu nome completo"
+      },
+      "email": {
+        "label": "E-mail *",
+        "placeholder": "seu@email.com"
+      },
+      "subject": {
+        "label": "Assunto *",
+        "placeholder": "Selecione um assunto",
+        "options": {
+          "otc": "Mesa OTC - Informações Gerais",
+          "api": "Integração API",
+          "crossBorder": "Cross-Border Payments",
+          "largeVolumes": "Volumes Grandes (+R$ 1M)",
+          "support": "Suporte Técnico",
+          "partnership": "Parceria Comercial",
+          "others": "Outros"
+        }
+      },
+      "message": {
+        "label": "Mensagem *",
+        "placeholder": "Conte-nos mais sobre suas necessidades, volume esperado e como podemos ajudar..."
+      }
+    },
+    "button": {
+      "idle": "Enviar mensagem",
+      "submitting": "Enviando...",
+      "success": "Mensagem enviada!",
+      "error": "Erro - Tente novamente"
+    },
+    "trustIndicators": {
+      "response": "Resposta garantida em 1h",
+      "confidential": "100% confidencial",
+      "noCommitment": "Sem compromisso"
+    }
+  }
+  },
+  "footer": {
+  "company": {
+    "name": "Axia Digital Solutions",
+    "tagline": "Liquidez cripto institucional",
+    "description": "Especialistas em liquidez cripto institucional, oferecendo soluções personalizadas para empresas que buscam maximizar seus resultados no mercado digital.",
+    "contact": {
+      "title": "Contato direto:",
+      "emailLabel": "E-mail comercial",
+      "email": "info@axiadigitalsolutions.com"
+    }
+  },
+  "quickLinks": {
+    "title": "Links Rápidos",
+    "links": {
+      "howItWorks": "Como Funciona",
+      "services": "Nossos Serviços",
+      "useCases": "Casos de Uso",
+      "faq": "FAQ",
+      "contact": "Contato"
+    }
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "list": {
+      "otcDesk": "Mesa OTC Institucional",
+      "crossBorder": "Cross-Border Payments",
+      "liquidityApi": "API de Liquidez",
+      "multiCurrency": "Conversão Multi-Moeda",
+      "support": "Suporte 24/7"
+    }
+  },
+  "bottom": {
+    "copyright": "© 2025 Axia Digital Solutions. Todos os direitos reservados.",
+    "cnpj": "CNPJ: 55.836.776/0001-38 | Líder em liquidez cripto institucional",
+    "trustIndicators": {
+      "systemOnline": "Sistema Online",
+      "sslSecurity": "Segurança SSL"
+    }
+  }
+  },
+  "header": {
+  "logo": {
+    "alt": "Axia Logo"
+  },
+  "navigation": {
+    "howItWorks": "Como Funciona",
+    "useCases": "Casos de Uso",
+    "faq": "Perguntas Frequentes",
+    "contact": "Contato"
+  }
+  }
+}
