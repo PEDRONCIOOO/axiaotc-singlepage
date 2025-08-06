@@ -17,7 +17,7 @@ export default function FinalCta() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
-    const cleanup = initFinalCtaAnimations();
+    initFinalCtaAnimations();
   }, []);
 
   // Atualizar conteúdo quando as traduções mudarem
