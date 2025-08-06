@@ -17,11 +17,6 @@ export default function FinalCta() {
   useEffect(() => {
     const cleanup = initFinalCtaAnimations();
     
-    return () => {
-      if (cleanup) {
-        cleanup();
-      }
-    };
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
