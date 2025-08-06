@@ -68,8 +68,8 @@ export default function FinalCta() {
         setFormData({ nome: '', email: '', assunto: '', mensagem: '' });
         setSubmitStatus('idle');
       }, 2000);
-      
-    } catch (error) {
+
+    } catch (any) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 3000);
     } finally {
